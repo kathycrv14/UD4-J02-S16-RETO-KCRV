@@ -1,0 +1,42 @@
+<section class="sectionGeneral">
+    <section class="sectionForm">
+        <form [formGroup]="registroForm">
+            <h1 class="text-center">LOGIN</h1>
+            <!-- EMAIL -->
+            <section class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+                    <section *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                        <section *ngIf="email?.errors?.['required']" class="alert alert-danger">
+                            <p>El correo es obligatorio</p>
+                        </section>
+                        <section *ngIf="email?.errors?.['pattern']" class="alert alert-warning alertaInput">
+                            <p>El correo puede tener letras o numeros</p>
+                        </section>    
+                    </section>
+            </section>
+            <!-- PASSWORD -->
+            <section class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="Password" pattern="^[a-zA-Z0-9]" minlength="8" maxlength="20" required>
+                    <section *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                        <section *ngIf="password?.errors?.['required']" class="alert alert-danger">
+                            <p>El correo es obligatorio</p>
+                        </section>
+                        <section *ngIf="password?.errors?.['pattern']" class="alert alert-warning alertaInput">
+                            <p>El correo debe tener caracteres de letras y numeros</p>
+                        </section>    
+                    </section>
+            </section>
+            <!-- CHECKBOX -->
+            <section class="form-group">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Remenber me</label>
+            </section>
+            <!-- BOTONES -->
+            <section class="form-group sectionButton">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </section>
+        </form>
+    </section>    
+</section>
